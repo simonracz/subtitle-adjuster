@@ -28,6 +28,9 @@
 		F42073B017A445D500AF0D9F /* SubtitleAdjuster */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SubtitleAdjuster; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42073B317A445D500AF0D9F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F42073B517A445D500AF0D9F /* SubtitleAdjuster.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SubtitleAdjuster.1; sourceTree = "<group>"; };
+		F42073BE17A4477100AF0D9F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		F42073BF17A4477100AF0D9F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		F49E383E17A448F600C186CA /* OldVersion */ = {isa = PBXFileReference; lastKnownFileType = folder; path = OldVersion; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +63,11 @@
 		F42073B217A445D500AF0D9F /* SubtitleAdjuster */ = {
 			isa = PBXGroup;
 			children = (
+				F49E383E17A448F600C186CA /* OldVersion */,
 				F42073B317A445D500AF0D9F /* main.cpp */,
 				F42073B517A445D500AF0D9F /* SubtitleAdjuster.1 */,
+				F42073BF17A4477100AF0D9F /* README.md */,
+				F42073BE17A4477100AF0D9F /* LICENSE */,
 			);
 			path = SubtitleAdjuster;
 			sourceTree = "<group>";
@@ -216,6 +222,7 @@
 				F42073BB17A445D500AF0D9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
