@@ -1,16 +1,12 @@
 //
-//  main.cpp
-//  SubtitleAdjuster
-//
-//  Created by Simon Racz on 7/27/13.
-//  Copyright (c) 2013 Simon Racz. All rights reserved.
+//  Created by Simon Racz
 //
 
 #include <iostream>
+#include "SubRip.h"
 
 int main(int argc, const char * argv[])
 {
-
 	// insert code here...
 	std::cout << "Hello, World!\n";
     return 0;
