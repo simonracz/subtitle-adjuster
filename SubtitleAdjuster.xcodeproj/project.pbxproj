@@ -29,8 +29,6 @@
 		F42073B017A445D500AF0D9F /* SubtitleAdjuster */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SubtitleAdjuster; sourceTree = BUILT_PRODUCTS_DIR; };
 		F42073B317A445D500AF0D9F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F42073B517A445D500AF0D9F /* SubtitleAdjuster.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SubtitleAdjuster.1; sourceTree = "<group>"; };
-		F42073BE17A4477100AF0D9F /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		F42073BF17A4477100AF0D9F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		F49E383E17A448F600C186CA /* OldVersion */ = {isa = PBXFileReference; lastKnownFileType = folder; path = OldVersion; sourceTree = "<group>"; };
 		F49E383F17A44DFF00C186CA /* SubRip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubRip.cpp; sourceTree = "<group>"; };
 		F49E384017A44DFF00C186CA /* SubRip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubRip.h; sourceTree = "<group>"; };
@@ -71,8 +69,6 @@
 				F49E383F17A44DFF00C186CA /* SubRip.cpp */,
 				F49E384017A44DFF00C186CA /* SubRip.h */,
 				F42073B517A445D500AF0D9F /* SubtitleAdjuster.1 */,
-				F42073BF17A4477100AF0D9F /* README.md */,
-				F42073BE17A4477100AF0D9F /* LICENSE */,
 			);
 			path = SubtitleAdjuster;
 			sourceTree = "<group>";
