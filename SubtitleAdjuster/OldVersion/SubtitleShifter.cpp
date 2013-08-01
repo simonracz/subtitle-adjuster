@@ -84,8 +84,6 @@ int main(int argc, char **argv) {
 
 		nodes.push_back(make_pair(make_pair(sTime, eTime), temp));
 
-		if(!go) break;
-
 	} while (go);
 
 	//Elso beolvasasa
@@ -131,7 +129,7 @@ int main(int argc, char **argv) {
 	//Writing
 	FILE* fout = fopen("./modified.srt", "w");
 	for (int i=0; i<nodes.size(); ++i) {
-		fprintf(fout, "%d\r\n", i);
+		fprintf(fout, "%d\r\n", i+1);
 		long ff = a * nodes[i].first.first + b;
 		long fe = a * nodes[i].first.second + b;
 

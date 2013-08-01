@@ -10,6 +10,7 @@
 		F42073B417A445D500AF0D9F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F42073B317A445D500AF0D9F /* main.cpp */; };
 		F42073B617A445D500AF0D9F /* SubtitleAdjuster.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = F42073B517A445D500AF0D9F /* SubtitleAdjuster.1 */; };
 		F49E384117A44DFF00C186CA /* SubRip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F49E383F17A44DFF00C186CA /* SubRip.cpp */; };
+		F49E384417A5461400C186CA /* Adjuster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F49E384217A5461400C186CA /* Adjuster.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +33,9 @@
 		F49E383E17A448F600C186CA /* OldVersion */ = {isa = PBXFileReference; lastKnownFileType = folder; path = OldVersion; sourceTree = "<group>"; };
 		F49E383F17A44DFF00C186CA /* SubRip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SubRip.cpp; sourceTree = "<group>"; };
 		F49E384017A44DFF00C186CA /* SubRip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubRip.h; sourceTree = "<group>"; };
+		F49E384217A5461400C186CA /* Adjuster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Adjuster.cpp; sourceTree = "<group>"; };
+		F49E384317A5461400C186CA /* Adjuster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Adjuster.h; sourceTree = "<group>"; };
+		F49E384517A80E3700C186CA /* TestStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestStrings.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +70,11 @@
 			children = (
 				F49E383E17A448F600C186CA /* OldVersion */,
 				F42073B317A445D500AF0D9F /* main.cpp */,
-				F49E383F17A44DFF00C186CA /* SubRip.cpp */,
+				F49E384517A80E3700C186CA /* TestStrings.h */,
 				F49E384017A44DFF00C186CA /* SubRip.h */,
+				F49E383F17A44DFF00C186CA /* SubRip.cpp */,
+				F49E384317A5461400C186CA /* Adjuster.h */,
+				F49E384217A5461400C186CA /* Adjuster.cpp */,
 				F42073B517A445D500AF0D9F /* SubtitleAdjuster.1 */,
 			);
 			path = SubtitleAdjuster;
@@ -126,6 +133,7 @@
 			files = (
 				F42073B417A445D500AF0D9F /* main.cpp in Sources */,
 				F49E384117A44DFF00C186CA /* SubRip.cpp in Sources */,
+				F49E384417A5461400C186CA /* Adjuster.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
