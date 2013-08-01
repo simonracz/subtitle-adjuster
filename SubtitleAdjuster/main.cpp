@@ -18,6 +18,8 @@ bool getAnchorPointFromUser(int* index, int* time, const Subtitles::SubRip& sr);
 //#define TESTSRT
 
 #ifdef TESTSRT
+#include <chrono>
+#include <sstream>
 bool testCIO();
 bool testCPPIO();
 bool test();
@@ -32,8 +34,6 @@ int main(int argc, const char * argv[])
 	
 	ifstream ifs = processArgs(argc,argv);
 
-//	FILE* fin = fopen(argv[1], "r");
-//	Subtitles::SubRip sr{fin};
 	Subtitles::SubRip sr{ifs};
 	
 	if(!sr) {
@@ -41,9 +41,11 @@ int main(int argc, const char * argv[])
 		return 1;
 	}
 	
-	cout << sr.printNode(1);
-	cout << sr.printNode(2);
-	cout << sr.printNode(3);
+	if (sr.size() >= 3) {
+		cout << sr.printNode(1);
+		cout << sr.printNode(2);
+		cout << sr.printNode(3);
+	}
 	
 	Subtitles::Adjuster adj{sr};
 	
@@ -53,10 +55,14 @@ int main(int argc, const char * argv[])
 	if(!getAnchorPointFromUser(&index, &time, sr)) { return 1; }
 	adj.setAnchor(index, time);
 	
-	ofstream fout{"./modified.srt", ofstream::trunc | ofstream::out};
+	string outFile{argv[1]};
+	auto pos = outFile.find(".srt");
+	outFile.erase(pos, 4);
+	outFile+="-mod.srt";
+	ofstream fout{outFile, ofstream::trunc | ofstream::out};
 	adj.printToStream(fout);
 	
-	cout << "\nDone. New file \"modified.srt\" has been created.\n";
+	cout << "\nDone. New file \"" << outFile << "\" has been created.\n";
 	
     return 0;
 }
@@ -129,30 +135,53 @@ bool getTimeDataFromUser(const int index, const Subtitles::SubRip& sr, unsigned 
 
 bool test()
 {
-	//timer
-	clog << "cstdio test result : " << endl;
-	bool s1 = testCIO();
-	clog << s1 << endl;
+
+	clog << "C cstdio test result : " << boolalpha << endl;
+	auto time = chrono::high_resolution_clock::now();
+	bool resC = testCIO();
+	clog << resC << "\nTest took : ";
+	auto duration = chrono::duration_cast<chrono::nanoseconds>(chrono::high_resolution_clock::now() - time).count();
+	clog << duration << " nanoseconds\n" << endl;
 	
-	clog << "iostream test result : " << endl;
-	bool s2 = testCPPIO();
-	clog << s2 << endl;
+	clog << "C++ iostream test result : " << endl;
+	time = chrono::high_resolution_clock::now();
+	bool resCPP = testCPPIO();
+	clog << resCPP << "\nTest took : ";
+	duration = chrono::duration_cast<chrono::nanoseconds>(chrono::high_resolution_clock::now() - time).count();
+	clog << duration << " nanoseconds\n" << endl;
 	
-	return s1 && s2;
+	return resC && resCPP;
 }
 
 bool testCIO()
 {
-	bool success = true;
-	
-	return success;
+	return true;
 }
 
 bool testCPPIO()
 {
-	bool success = true;
-
-	return success;
+	istringstream iss{engIn};
+	Subtitles::SubRip sr{iss};
+	if (!sr) { return false; }
+	Subtitles::Adjuster adj{sr};
+	adj.setAnchor(1, Subtitles::SubRip::aggregateTimes(0, 0, 13, 440));
+	adj.setAnchor(4, Subtitles::SubRip::aggregateTimes(0, 0, 23, 340));
+	ostringstream oss{};
+	adj.printToStream(oss);
+	bool testRes1 = (oss.str().compare(engRes) == 0);
+	
+	iss.str(hunIn);
+	sr.clear();
+	sr.readFromStream(iss);
+	if (!sr) { return false; }
+	Subtitles::Adjuster adjHun{sr};
+	adjHun.setAnchor(2, Subtitles::SubRip::aggregateTimes(0, 0, 21, 80));
+	adjHun.setAnchor(static_cast<int>(sr.size()), Subtitles::SubRip::aggregateTimes(0, 0, 40, 920));
+	oss.clear();
+	adjHun.printToStream(oss);
+	bool testRes2 = (oss.str().compare(hunRes) == 0);
+	cout << testRes1 << testRes2;
+	return (testRes1 && testRes2);
 }
 
 #endif //TESTSRT

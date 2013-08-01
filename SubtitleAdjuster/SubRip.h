@@ -1,3 +1,7 @@
+//
+//  Created by Simon Racz
+//
+
 #ifndef SUBRIP_H
 #define SUBRIP_H
 

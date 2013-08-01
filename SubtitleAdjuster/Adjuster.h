@@ -1,3 +1,7 @@
+//
+//  Created by Simon Racz
+//
+
 #ifndef ADJUSTER_H
 #define ADJUSTER_H
 

@@ -1,3 +1,7 @@
+//
+//  Created by Simon Racz
+//
+
 #include "SubRip.h"
 #include <iostream>
 #include <iomanip>

@@ -1,3 +1,7 @@
+//
+//  Created by Simon Racz
+//
+
 #include "Adjuster.h"
 #include <iostream>
 
