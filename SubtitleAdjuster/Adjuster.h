@@ -16,7 +16,7 @@ namespace Subtitles {
 	public:
 		Adjuster(const SubRip&);
 		
-		void setAnchor(const int index, const int time); //currently supports only exactly 2
+		void setAnchor(const int index, const int time); //currently supports only 0, 1 or 2
 		void clearAnchors();
 		
 		std::string printNode(int index) const;

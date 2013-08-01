@@ -135,7 +135,6 @@ bool getTimeDataFromUser(const int index, const Subtitles::SubRip& sr, unsigned 
 
 bool test()
 {
-
 	clog << "C cstdio test result : " << boolalpha << endl;
 	auto time = chrono::high_resolution_clock::now();
 	bool resC = testCIO();
@@ -180,7 +179,6 @@ bool testCPPIO()
 	oss.clear();
 	adjHun.printToStream(oss);
 	bool testRes2 = (oss.str().compare(hunRes) == 0);
-	cout << testRes1 << testRes2;
 	return (testRes1 && testRes2);
 }
 
