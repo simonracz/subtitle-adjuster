@@ -52,22 +52,33 @@ namespace Subtitles {
 		adjusted = false;
 	}
 	
-	string Adjuster::printNode(int index) const
+	void Adjuster::clear()
 	{
-		if (!adjusted) { return original.printNode(index); }
+		clearAnchors();
+		clearLocks();
+	}
+	
+	SubRip Adjuster::apply() const
+	{
 		SubRip temp{original};
 		temp*=scale;
 		temp+=shift;
-		return temp.printNode(index);
+		for (auto lock : locks) {
+			temp[lock] = original[lock];
+		}
+		return move(temp);
+	}
+	
+	string Adjuster::printNode(int index) const
+	{
+		if (!adjusted) { return original.printNode(index); }
+		return apply().printNode(index);
 	}
 	
 	bool Adjuster::printNodeToStream(const int index, std::ostream& os) const
 	{
 		if (!adjusted) { return original.printNodeToStream(index, os); }
-		SubRip temp{original};
-		temp*=scale;
-		temp+=shift;
-		return temp.printNodeToStream(index, os);
+		return apply().printNodeToStream(index, os);
 	}
 	
 	void Adjuster::printToFILE(std::FILE* fout) const
@@ -76,10 +87,7 @@ namespace Subtitles {
 			original.printToFILE(fout);
 			return;
 		}
-		SubRip temp{original};
-		temp*=scale;
-		temp+=shift;
-		temp.printToFILE(fout);
+		apply().printToFILE(fout);
 		return;
 	}
 	
@@ -89,20 +97,36 @@ namespace Subtitles {
 			os << original;
 			return;
 		}
-		SubRip temp{original};
-		temp*=scale;
-		temp+=shift;
-		os << temp;
+		os << apply();
 		return;
+	}
+	
+	void Adjuster::commit(bool clearLocks)
+	{
+		original = this->subRip();
+		if (clearLocks) {
+			this->clearLocks();
+		}
+	}
+	
+	void Adjuster::lock(const int index)
+	{
+		locks.insert(index);
+	}
+	
+	void Adjuster::clearLock(const int index)
+	{
+		locks.erase(index);
+	}
+	void Adjuster::clearLocks()
+	{
+		locks.clear();
 	}
 	
 	SubRip Adjuster::subRip() const
 	{
 		if (!adjusted) { return original; }
-		SubRip temp{original};
-		temp*=scale;
-		temp+=shift;
-		return move(temp);
+		return apply();
 	}
 	
 }

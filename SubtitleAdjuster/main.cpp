@@ -36,7 +36,7 @@ int main(int argc, const char * argv[])
 
 	Subtitles::SubRip sr{ifs};
 	
-	if(!sr) {
+	if (!sr) {
 		cout << "Couldn't read the subtitle file : " << argv[1] << '\n';
 		return 1;
 	}
@@ -50,9 +50,9 @@ int main(int argc, const char * argv[])
 	Subtitles::Adjuster adj{sr};
 	
 	int index, time;
-	if(!getAnchorPointFromUser(&index, &time, sr)) { return 1; }
+	if (!getAnchorPointFromUser(&index, &time, sr)) { return 1; }
 	adj.setAnchor(index, time);
-	if(!getAnchorPointFromUser(&index, &time, sr)) { return 1; }
+	if (!getAnchorPointFromUser(&index, &time, sr)) { return 1; }
 	adj.setAnchor(index, time);
 	
 	string outFile{argv[1]};
